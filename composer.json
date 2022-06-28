@@ -1,5 +1,5 @@
 {
-    "name": "behruz/filter",
+    "name": "behryuz/filter",
     "description": "Simple laravel filter",
     "license": "MIT",
     "autoload": {
