@@ -1,0 +1,30 @@
+{
+    "name": "behruz/filter",
+    "description": "Simple laravel filter",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Filter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "behryuz",
+            "email": "behruz.yousupov@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/console": "^9.14",
+        "illuminate/filesystem": "^9.18",
+        "illuminate/database": "^9.18",
+        "illuminate/config": "^9.18",
+        "illuminate/support": "^9.18"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Filter\\ServiceProvider"
+            ]
+        }
+    }
+} .

@@ -1,0 +1,14 @@
+<?php
+
+namespace {{namespace}};
+
+use App\Filters\NodeFilter;
+use Illuminate\Database\Eloquent\Builder;
+
+class {{class}} implements NodeFilter
+{
+    public function handle(Builder $query, $input): Builder
+    {
+        // return $query->where('id', $input);
+    }
+}
