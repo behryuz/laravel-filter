@@ -67,7 +67,7 @@ class MakeNodeFilter extends Command
         }
         $this->makeDirectory($path);
 
-        $stubPath = __DIR__ . '/stubs/filter_node.stub';
+        $stubPath = __DIR__ . '/../stubs/filter_node.stub';
 
         if (! $this->files->exists($stubPath) || ! is_readable($stubPath)) {
             $this->error(sprintf('File "%s" does not exist or is unreadable.', $stubPath));
