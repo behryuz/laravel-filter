@@ -14,12 +14,14 @@
         }
     ],
     "require": {
-        "illuminate/console": "^9.14",
-        "illuminate/filesystem": "^9.18",
-        "illuminate/database": "^9.18",
-        "illuminate/config": "^9.18",
-        "illuminate/support": "^9.18"
+        "illuminate/console": "~6.0|~7.0|~8.0|~9.0",
+        "illuminate/filesystem": "~6.0|~7.0|~8.0|~9.0",
+        "illuminate/database": "~6.0|~7.0|~8.0|~9.0",
+        "illuminate/support": "~6.0|~7.0|~8.0|~9.0",
+        "illuminate/config": "~6.0|~7.0|~8.0|~9.0"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [
