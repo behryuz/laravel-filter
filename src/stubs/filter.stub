@@ -4,7 +4,7 @@ namespace {{namespace}};
 
 use App\Filters\Filter;
 
-class {class}} extends Filter
+class {{class}} extends Filter
 {
     protected array $filters = [];
 }
