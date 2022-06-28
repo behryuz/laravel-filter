@@ -82,7 +82,7 @@ class MakeNodeFilter extends Command
     {
         $className = $this->getClassBasename($this->getClassName());
         $search = ['{{class}}', '{{namespace}}'];
-        $replace = [$className, str_replace('\\'.$className, '', $this->getClassName())];
+        $replace = [$className, str_replace('/'.$className, '', $this->getClassName())];
 
         return str_replace($search, $replace, $stub);
     }
