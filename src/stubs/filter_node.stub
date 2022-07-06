@@ -2,7 +2,7 @@
 
 namespace {{namespace}};
 
-use App\Filters\NodeFilter;
+use Filter\NodeFilter;
 use Illuminate\Database\Eloquent\Builder;
 
 class {{class}} implements NodeFilter

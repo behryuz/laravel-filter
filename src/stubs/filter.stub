@@ -2,7 +2,7 @@
 
 namespace {{namespace}};
 
-use App\Filters\Filter;
+use Filter\Filter;
 
 class {{class}} extends Filter
 {
