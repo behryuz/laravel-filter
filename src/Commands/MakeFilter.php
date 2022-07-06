@@ -82,7 +82,7 @@ class MakeFilter extends Command
     {
         $className = $this->getClassBasename($this->getClassName());
         $search = ['{{class}}', '{{namespace}}'];
-        $replace = [$className, str_replace('/'.$className, '', $this->getClassName())];
+        $replace = [$className, str_replace('\\'.$className, '', $this->getClassName())];
 
         return str_replace($search, $replace, $stub);
     }
@@ -129,7 +129,10 @@ class MakeFilter extends Command
      */
     public function makeClassName()
     {
-        $parts = array_map([Str::class, 'studly'], explode('\\', $this->argument('name')));
+        $name = $this->argument('name');
+        $name = ltrim($name, '\\/');
+        $name = str_replace('/', '\\', $name);
+        $parts = array_map([Str::class, 'studly'], explode('\\', $name));
         $className = array_pop($parts);
         $ns = count($parts) > 0 ? implode('\\', $parts).'\\' : '';
 
