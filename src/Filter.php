@@ -54,10 +54,10 @@ abstract class Filter
     // TODO:: empty method helper
     protected function includeFilterInput($key, $value): bool
     {
-        return $value !== ''
-            && $value !== 0
-            && $value !== null
-            && $value !== 'null'
+        return $value != ''
+            && $value != 0
+            && $value != null
+            && $value != 'null'
             && !(is_array($value) && empty($value));
     }
 }
