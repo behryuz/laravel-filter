@@ -10,7 +10,7 @@ abstract class Filter
     private Builder $query;
     private array $input;
 
-    public function __construct($query)
+    public function __construct(Builder $query)
     {
         $this->query = $query;
         $received_filters = $this->receivedFilters();
