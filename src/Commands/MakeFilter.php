@@ -55,15 +55,25 @@ class MakeFilter extends Command
      */
     public function handle()
     {
-        $this->makeClassName()->compileStub();
+        if (! $this->makeClassName()) {
+            return self::FAILURE;
+        }
+
+        if (! $this->compileStub()) {
+            return self::FAILURE;
+        }
+
         $this->info(class_basename($this->getClassName()).' Created Successfully!');
+
+        return self::SUCCESS;
     }
 
     public function compileStub()
     {
         if ($this->files->exists($path = $this->getPath())) {
             $this->error("\n\n\t".$path.' Already Exists!'."\n");
-            exit;
+
+            return false;
         }
         $this->makeDirectory($path);
 
@@ -71,11 +81,14 @@ class MakeFilter extends Command
 
         if (! $this->files->exists($stubPath) || ! is_readable($stubPath)) {
             $this->error(sprintf('File "%s" does not exist or is unreadable.', $stubPath));
-            exit;
+
+            return false;
         }
 
         $tmp = $this->applyValuesToStub($this->files->get($stubPath));
         $this->files->put($path, $tmp);
+
+        return true;
     }
 
     public function applyValuesToStub($stub)
@@ -96,7 +109,7 @@ class MakeFilter extends Command
 
     public function getPath()
     {
-        return $this->laravel->path.DIRECTORY_SEPARATOR.$this->getFileName();
+        return $this->laravel->path().DIRECTORY_SEPARATOR.$this->getFileName();
     }
 
     public function getFileName()
@@ -125,7 +138,7 @@ class MakeFilter extends Command
     /**
      * Create Filter Class Name.
      *
-     * @return $this
+     * @return $this|null
      */
     public function makeClassName()
     {
@@ -144,7 +157,8 @@ class MakeFilter extends Command
 
         if (class_exists($fqClass)) {
             $this->error("\n\n\t$fqClass Already Exists!\n");
-            exit;
+
+            return null;
         }
 
         $this->setClassName($fqClass);
